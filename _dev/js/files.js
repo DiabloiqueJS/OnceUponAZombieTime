@@ -37,6 +37,7 @@ require.config( {
     ,'Bullet'         : 'custom/Bullet'
     ,'datas'          : 'custom/datas'
     ,'main'           : 'main'
+    ,'Trap'           : 'custom/Trap'
     
     // platforms
     ,'W8'          : 'platforms/w8/Windows8App'

@@ -23,9 +23,9 @@ function( CONFIG )
   var datas = {
     // avalaible images sizes (engine will load optimisest images depends on user resolution)
     screenSizes: [
-      { "w": 1000, "h": 1080, "path": "" }
-      ,{ "w": 666, "h": 720, "path": "", "notRatio": true }
-      ,{ "w": 333, "h": 360, "path": "", "notRatio": true }
+      { "w": 1080, "h": 1000, "path": "" }
+      ,{ "w": 720, "h": 666, "path": "", "notRatio": true }
+      ,{ "w": 360, "h": 333, "path": "", "notRatio": true }
     ]
     
     // index of the used screen size during game conception

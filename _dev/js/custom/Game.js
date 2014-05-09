@@ -19,7 +19,7 @@ function( DE, Player, Enemy, datas )
   Game.init = function()
   {
     console.log( "Engine init" );
-    DE.CONFIG.DEBUG_LEVEL = 1; // 5 for all debug
+    DE.CONFIG.DEBUG_LEVEL = 5; // 5 for all debug
     
     // create render
     Game.render = new DE.Render( "render", { fullScreen: "ratioStretch" } );
@@ -40,7 +40,7 @@ function( DE, Player, Enemy, datas )
     DE.start();
   }
   
-  Game.screen = { w: 1000, h: 1080 };
+  Game.screen = { w: 1080, h: 1000 };
   // start
   Game.start = function()
   {

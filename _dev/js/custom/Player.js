@@ -11,22 +11,25 @@ function( datas, DE, GamePad, Bullet )
     } );
     
     var _self = this;
-    this.add( new DE.GameObject( {
+   /* this.add( new DE.GameObject( {
       "x": 0, "y": 120, "renderer": new DE.SpriteRenderer( { "spriteName": "reactor", "scale": 0.7 } )
     } ) );
     this.childrens[ 0 ].position.setRotation( Math.PI );
-    
+    */
     this.speed = 10;
     this.axes  = { x: 0, y: 0 };
     this.life  = 3;
     
     this.init = function()
     {
-      this.life = 3;
+     this.life = 3;
       this.position.setPosition( _screenSizes.w / 2, _screenSizes.h - 280 );
-      for ( var i = 0; i < this.hearts.length; ++i )
-        this.hearts[ i ].enable = true;
       this.enable = true;
+      /*
+     for ( var i = 0; i < this.hearts.length; ++i )
+        this.hearts[ i ].enable = true;
+      */ 
+
     }
     
     this.checkPos = function()
@@ -126,18 +129,17 @@ function( datas, DE, GamePad, Bullet )
     this.hearts = [];
     this.createGui = function()
     {
-      for ( var i = 0; i < this.life; ++i )
+     /*for ( var i = 0; i < this.life; ++i )
       {
-        var heart = new DE.GameObject( {
+           var heart = new DE.GameObject( {
           "x": i * 65 + 40, "y": _screenSizes.h - 60, "zindex": 20
           , "renderer": new DE.SpriteRenderer( { "spriteName": "heart", "scale": 0.6 } )
         } );
         this.hearts.push( heart );
         this.scene.add( heart );
-      }
-      
-      // of for this part I don't recommend you to do like this if it's not the GameObject's Gui
-      // so for menus I recommend you to make a independent singleton
+
+      }    */
+
       this.gui = new DE.GameObject( { "x": _screenSizes.w / 2, "y": _screenSizes.h / 2, "zindex": 25 } );
       var loose = new DE.GameObject( {
         "renderer": new DE.TextRenderer( {

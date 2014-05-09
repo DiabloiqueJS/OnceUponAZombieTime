@@ -87,7 +87,7 @@ function( datas, DE, GamePad, Bullet )
     // make bullet
     this.fire = function( mouse, target )
     {
-      DE.AudioManager.fx.play( "piew" );
+     // DE.AudioManager.fx.play( "piew" );
       this.scene.add( new Bullet( _screenSizes, this ) );
     }
     

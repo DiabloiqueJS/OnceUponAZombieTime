@@ -46,6 +46,7 @@ function( CONFIG )
       ,[ "e-fire", "e-fire", "png", { "load": true, "totalFrame": 4, "eachAnim": 80
           , "isAnimated": true, "isLoop": true } ]
       ,[ "heart", "heart", "png", { "load": true, "totalFrame": 1, "isAnimated": false } ]
+      ,[ "bullet", "bullet", "png", { "load": true, "totalFrame": 1, "isAnimated": false } ]
       ,[ "btn", "btn", "png", { "load": true, "totalFrame": 3, "isAnimated": false } ]
     ]
   };

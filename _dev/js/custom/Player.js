@@ -5,8 +5,8 @@ function( datas, DE, GamePad, Bullet )
   function Player( _screenSizes )
   {
     DE.GameObject.call( this, {
-      "x": _screenSizes.w / 2, "y": _screenSizes.h - 280, "zindex": 5, "tag": "player"
-      ,"renderer": new DE.SpriteRenderer( { "spriteName": "ship", "scale": 0.7 } )
+      "x": _screenSizes.w / 2, "y": _screenSizes.h - 280, "zindex": 1, "tag": "player"
+      ,"renderer": new DE.SpriteRenderer( { "spriteName": "ship", "scale": 0.3 } )
       ,"collider": new DE.CircleCollider( 20 )
     } );
     
@@ -19,11 +19,12 @@ function( datas, DE, GamePad, Bullet )
     this.speed = 10;
     this.axes  = { x: 0, y: 0 };
     this.life  = 3;
+
     
     this.init = function()
     {
      this.life = 3;
-      this.position.setPosition( _screenSizes.w / 2, _screenSizes.h - 280 );
+      this.position.setPosition( 50, _screenSizes.h /3 );
       this.enable = true;
       /*
      for ( var i = 0; i < this.hearts.length; ++i )
@@ -46,7 +47,7 @@ function( datas, DE, GamePad, Bullet )
     }
     this.checkInputs = function()
     {
-      this.checkPos();
+      /*this.checkPos();
       if ( this.flipping )
       {
         this.translateX( this.speed * _lastDir );
@@ -81,6 +82,7 @@ function( datas, DE, GamePad, Bullet )
         this.renderers[ 0 ].setFrame( 0 );
       
       this.translate( { x: axeH * this.speed, y: axeV * this.speed } );
+      */
       
       // here chek the fire button input (gamepad and keyboard)
       if ( DE.Inputs.key( "fire" ) )

@@ -8,9 +8,9 @@ define( [ "datas", "DREAM_ENGINE" ]
     DE.GameObject.call( this, {
       "x": _parent.position.x, "y": _parent.position.y, "zindex": _parent.zindex + 1
       , "tag": _parent.tag == "player" ? "b-p" : "b-e"
-      , "renderer": new DE.SpriteRenderer( { "spriteName": ( _parent.tag == "player" ? "p" : "e" ) + "-fire"
+      , "renderer": new DE.SpriteRenderer( { "spriteName": "bullet"/*( _parent.tag == "player" ? "p" : "e" ) + "-fire"*/
                                           , "scale": 0.7 } )
-      , "collider": new DE.CircleCollider( 30 )
+      , "collider": new DE.CircleCollider( 10 )
     } );
     this.vector = { x: 0, y: 0 };
     

@@ -94,6 +94,80 @@ function( DE, Player, Enemy, datas)
   
   Game.startGame = function( bench )
   {
+    Game.scene.add( new DE.GameObject( { "x": Game.screen.w / 2, "y": Game.screen.h / 2, "renderer": new DE.SpriteRenderer( { "spriteName": "background", "scale": 0.67 } ) } ) );
+    
+    Game.menuBtn = new DE.GameObject( {
+        "x": Game.screen.w / 1.2, "y": Game.screen.h / 20
+        , "renderers": [
+          new DE.SpriteRenderer( { "spriteName": "btn" } )
+          , new DE.TextRenderer( {
+            "fontSize": 32, "font": "Arial Black" // not a nice font but just to show you how to :)
+          }, 500, 60, DE.LangSystem.get( "play" ) )
+        ]
+        , "collider": new DE.FixedBoxCollider( 550, 70 )
+    } );
+    Game.menuBtn.onMouseEnter = function(){ this.renderers[ 0 ].setFrame( 1 ); }
+    Game.menuBtn.onMouseLeave = function(){ this.renderers[ 0 ].setFrame( 0 ); }
+    Game.menuBtn.onMouseUp = function()
+    {
+      console.log("bouton menu")
+    }
+    Game.scene.add( Game.menuBtn );
+
+    Game.trap1 = new DE.GameObject( {
+        "x": Game.screen.w / 1.2, "y": Game.screen.h / 1.07
+        , "renderers": [
+          new DE.SpriteRenderer( { "spriteName": "btn" } )
+          , new DE.TextRenderer( {
+            "fontSize": 32, "font": "Arial Black" // not a nice font but just to show you how to :)
+          }, 500, 60, DE.LangSystem.get( "play" ) )
+        ]
+        , "collider": new DE.FixedBoxCollider( 550, 70 )
+    } );
+    Game.trap1.onMouseEnter = function(){ this.renderers[ 0 ].setFrame( 1 ); }
+    Game.trap1.onMouseLeave = function(){ this.renderers[ 0 ].setFrame( 0 ); }
+    Game.trap1.onMouseUp = function()
+    {
+      console.log("bouton trap1");
+    }
+    Game.scene.add( Game.trap1 );
+
+    Game.trap2 = new DE.GameObject( {
+        "x": Game.screen.w / 1.5, "y": Game.screen.h / 1.07
+        , "renderers": [
+          new DE.SpriteRenderer( { "spriteName": "btn" } )
+          , new DE.TextRenderer( {
+            "fontSize": 32, "font": "Arial Black" // not a nice font but just to show you how to :)
+          }, 500, 60, DE.LangSystem.get( "play" ) )
+        ]
+        , "collider": new DE.FixedBoxCollider( 550, 70 )
+    } );
+    Game.trap2.onMouseEnter = function(){ this.renderers[ 0 ].setFrame( 1 ); }
+    Game.trap2.onMouseLeave = function(){ this.renderers[ 0 ].setFrame( 0 ); }
+    Game.trap2.onMouseUp = function()
+    {
+      console.log("bouton trap2");
+    }
+    Game.scene.add( Game.trap2 );
+
+    Game.trap3 = new DE.GameObject( {
+        "x": Game.screen.w / 2, "y": Game.screen.h / 1.07
+        , "renderers": [
+          new DE.SpriteRenderer( { "spriteName": "btn" } )
+          , new DE.TextRenderer( {
+            "fontSize": 32, "font": "Arial Black" // not a nice font but just to show you how to :)
+          }, 500, 60, DE.LangSystem.get( "play" ) )
+        ]
+        , "collider": new DE.FixedBoxCollider( 550, 70 )
+    });
+    Game.trap3.onMouseEnter = function(){ this.renderers[ 0 ].setFrame( 1 );}
+    Game.trap3.onMouseLeave = function(){ this.renderers[ 0 ].setFrame( 0 );}
+    Game.trap3.onMouseUp = function()
+    {
+      console.log("bouton trap3");
+    }
+    Game.scene.add( Game.trap3 );
+
     Game.run = true;
     Game.benchmark = bench;
     Game.benchBtn.enable = false;
@@ -117,8 +191,8 @@ function( DE, Player, Enemy, datas)
     for ( var i in datas.benchwaves )
       datas.benchwaves[ i ].readed = false;
     _firstCheck = false;
-    // start the music oh yeah
- //   DE.AudioManager.music.stopAllAndPlay( "music" );
+    //start the music oh yeah
+    //DE.AudioManager.music.stopAllAndPlay( "music" );
   }
   
   // simple waves spawner

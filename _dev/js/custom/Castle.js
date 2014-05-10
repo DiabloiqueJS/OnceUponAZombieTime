@@ -10,7 +10,13 @@ function( datas, DE, GamePad)
 
 		var life;
 	    this.add( life = new DE.GameObject( {
-	      "x": 20, "y": -150, "z": 5, "renderer": new DE.SpriteRenderer( { "spriteName": "life", "scaleY": 1, "scaleX": 0.5 } )
+	      "x": 20, "y": -150, "z": 5,
+	       "renderer": new DE.SpriteRenderer( { "spriteName": "life", "scaleY": 1, "scaleX": 0.5 })
+	    } ) );
+	    this.add( new DE.GameObject( {
+	      "x": 20, "y": 50, "z": 5,
+	       "renderer": new DE.SpriteRenderer( { "spriteName": "life", "scaleY": 1, "scaleX": 0.5 }) , 
+	       	"collider": new DE.CircleCollider( 40 )
 	    } ) );
 
 	    this.lifeWidth  = life.renderers[0].sizes.width;

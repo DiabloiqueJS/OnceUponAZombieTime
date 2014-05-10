@@ -87,12 +87,7 @@ function( DE, Player, Enemy, datas, Trap )
       Game.scene.add( benchBtn );
      /****/
     
-    Game.player = new Player( Game.screen );
-    Game.scene.add( Game.player );
-    Game.player.createGui();
-    Game.player.on( "restart", function(){ Game.startGame( Game.benchmark ); } );
-    Game.player.enable = false;
-    
+   
     //DE.AudioManager.fx.setVolume( 10 );
     setTimeout( function(){ DE.States.down( "isLoading" ); }, 200 );
   };
@@ -103,6 +98,14 @@ function( DE, Player, Enemy, datas, Trap )
     Game.benchmark = bench;
     Game.benchBtn.enable = false;
     Game.gameBtn.enable  = false;
+    
+    Game.player = new Player( Game.screen );
+    Game.scene.add( Game.player );
+    Game.player.createGui();
+    Game.player.on( "restart", function(){ Game.startGame( Game.benchmark ); } );
+    Game.player.enable = false;
+    
+
     for ( var n = 0; n < Game.scene.gameObjects.length; ++n )
     {
       if ( Game.scene.gameObjects[ n ].tag.match( "enemy|bullet" ) )

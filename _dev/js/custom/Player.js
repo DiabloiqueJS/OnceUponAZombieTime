@@ -55,8 +55,8 @@ function( datas, DE, GamePad, Bullet )
     }
 
     Game.camera.onMouseClick = function(mouse){
-     // this.myTarget = {mouse.x, mouse.y};
-     console.log(mouse.x);
+     this.myTarget = {x: mouse.x, y: mouse.y};
+
       this.scene.add( new Bullet( _screenSizes, this, this.myTarget) );
     }
     

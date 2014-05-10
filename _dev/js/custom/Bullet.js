@@ -6,59 +6,36 @@ define( [ "datas", "DREAM_ENGINE" ]
   function Bullet( _screenSizes, _parent, theTarget )
   {
     DE.GameObject.call( this, {
-      "x": _parent.position.x, "y": _parent.position.y, "zindex": _parent.zindex + 1
+      "x": 50, "y": _screenSizes.h /3, "zindex": _parent.zindex + 1
       , "tag": _parent.tag == "player" ? "b-p" : "b-e"
       , "renderer": new DE.SpriteRenderer( { "spriteName": "bullet"/*( _parent.tag == "player" ? "p" : "e" ) + "-fire"*/
-                                          , "scale": 0.7 } )
+                                          , "scale": 1 } )
       , "collider": new DE.CircleCollider( 10 )
     } );
     this.vector = { x: 0, y: 0 };
-    
-    if ( _parent.tag == "player" )
-    {
-      this.vector.y = -10;
-      this.position.y -= 50;
-      this.tag = "p-bullet";
-      this.renderers[ 0 ].onAnimEnd = function()
-      {
-        this.startFrame = 8;
-        this.isLoop = true;
-        this.restartAnim();
-      }
-    }
-    
+       
     
     this.gameLogic = function()
     {
-      this.translate( theTarget );
-      
+      this.translate( {x: theTarget.x, y: theTarget.y}, true );
+       console.log(this.position.x +" _ "+ theTarget.x);
+    
       if ( this.position.y < -50 || this.position.y > _screenSizes.h + 50 )
         this.askToKill();
       
-      if ( _player )
+      // player bullets, checking collisions with all objects in the scene
+      var gos = this.scene.gameObjects;
+      for ( var n = 0, t = gos.length, g; n < t; ++n )
       {
-        if ( _player.enable && !_player.flipping
-            && DE.CollisionSystem.circleCollision( this.collider, _player.collider ) )
+        g = gos[ n ];
+        if ( g.tag == "enemy" && DE.CollisionSystem.circleCollision( this.collider, g.collider ) )
         {
+          g.getDamage();
           this.askToKill();
-          _player.getDamage();
+          return;
         }
       }
-      else
-      {
-        // player bullets, checking collisions with all objects in the scene
-        var gos = this.scene.gameObjects;
-        for ( var n = 0, t = gos.length, g; n < t; ++n )
-        {
-          g = gos[ n ];
-          if ( g.tag == "enemy" && DE.CollisionSystem.circleCollision( this.collider, g.collider ) )
-          {
-            g.getDamage();
-            this.askToKill();
-            return;
-          }
-        }
-      }
+    
     }
     
     this.addAutomatism( "logic", "gameLogic" );

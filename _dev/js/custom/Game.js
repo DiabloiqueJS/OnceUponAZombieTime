@@ -10,8 +10,8 @@
  there is no "end" and no menus, it's a very lite "how to" for basics
  and you can create complete game with this :)
 **/
-define( [ 'DREAM_ENGINE', 'Player', 'Enemy', 'datas', 'Trap', 'Castle'],
-function( DE, Player, Enemy, datas, Trap, Castle)
+define( [ 'DREAM_ENGINE', 'Player', 'Enemy', 'datas', 'Trap', 'Castle','DE.GuiLabel' , 'DE.GuiImage'],
+function( DE, Player, Enemy, datas, Trap, Castle, GuiLabel, GuiImage)
 {
   var Game = {};
 
@@ -171,6 +171,8 @@ function( DE, Player, Enemy, datas, Trap, Castle)
       console.log("bouton trap3");
     }
     Game.scene.add( Game.trap3 );
+
+    Game.scene.add(new DE.GuiLabel( { 'id': "score", "fontSize": 40, 'font': "Arial", "zindex": 10 , 'x': 0, 'y': 0, "w": 300, "h": 80, "fillColor": "rgb(255,200,0)", "strokeColor": "red"} , "Score : "+ Game.gold +" m" ));
 
     Game.run = true;
     Game.benchmark = bench;

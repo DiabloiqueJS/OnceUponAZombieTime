@@ -35,6 +35,7 @@ require.config( {
     ,'Player'         : 'custom/Player'
     ,'Enemy'          : 'custom/Enemy'
     ,'Bullet'         : 'custom/Bullet'
+    ,'Castle'         : 'custom/Castle'
     ,'datas'          : 'custom/datas'
     ,'main'           : 'main'
     ,'Trap'           : 'custom/Trap'

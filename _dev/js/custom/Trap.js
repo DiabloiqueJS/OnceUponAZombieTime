@@ -16,7 +16,7 @@ define( ['DREAM_ENGINE'], function(DE)
 	      "tag": this.comportement,
 	      "collider": new DE.CircleCollider( this.width/2 )
 	    });
-	    console.log(this.x + " " + this.y);
+	    console.log(this.position.x + " " + this.position.y);
 	}
 
 	Trap.prototype = new DE.GameObject();

@@ -29,6 +29,7 @@ function( datas, DE, GamePad, Enemy, Player)
 	      if( this.life <= 0 ){
   	        console.log("Game over");
   	    	this.gameover();
+  	    	this.life = 0;
   	    	}
 	    }
 

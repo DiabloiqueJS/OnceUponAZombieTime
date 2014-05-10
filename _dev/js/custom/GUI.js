@@ -1,8 +1,9 @@
-define( [ 'datas', 'DREAM_ENGINE', 'DE.GamePad', 'Player'],
-function( datas, DE, GamePad, Player)
+define( [ 'datas', 'DREAM_ENGINE', 'DE.GamePad', 'Player', 'DE.GuiLabel'],
+function( datas, DE, GamePad, Player, GuiLabel)
 {
 	function GUI()
     {
+    	var gold;
 	    this.init = function(){
 	    	Game.menuBtn = new DE.GameObject( {
 		        "x": Game.screen.w / 1.03, "y": Game.screen.h / 20
@@ -64,10 +65,14 @@ function( datas, DE, GamePad, Player)
 		    }
 		    Game.scene.add( Game.trap3 );
 
-		    Game.scene.add(new DE.GuiLabel( { 'id': "score", "fontSize": 40, 'font': "Arial",
-		     "zindex": 10 , 'x': 50, 'y': 50, "w": 300, "h": 80, "fillColor": "rgb(255,200,0)", "strokeColor": "red"} 
-		     , "Score : "+ Game.gold +" m" ));
-	    }
+		    Game.scene.add(gold = new DE.GameObject( {
+        "x": Game.screen.w / 2, "y": Game.screen.h / 2 - 50
+        , "renderers": [ new DE.TextRenderer( {
+            "fontSize": 24, "font": "Arial Black" // not a nice font but just to show you how to :)
+          }, 500, 60, "Gold: "+ Game.gold )
+        ]
+	    }));
+		}
 
 	    this.update = function(){
 

@@ -40,7 +40,7 @@ function( DE, Player, Enemy, datas, Trap )
     DE.start();
   }
   
-  Game.screen = { w: 1080, h: 1000 };
+  Game.screen = { w: 1280, h: 720 };
   // start
   Game.start = function()
   {

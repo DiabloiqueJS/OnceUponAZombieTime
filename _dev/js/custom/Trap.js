@@ -2,7 +2,7 @@ define( ['DREAM_ENGINE'], function(DE)
 {
 	function Trap(comportement, idCase)
 	{
-		this.idCase = idCase
+		this.idCase = idCase;
 		this.width = 117 * 0.67;
 		this.heigth = 117 * 0.67;
 		this.startpos = {x: 212 * 0.67, y:209 * 0.67};
@@ -16,6 +16,7 @@ define( ['DREAM_ENGINE'], function(DE)
 	      "tag": this.comportement,
 	      "collider": new DE.CircleCollider( this.width/2 )
 	    });
+	    console.log(this.x + " " + this.y);
 	}
 
 	Trap.prototype = new DE.GameObject();

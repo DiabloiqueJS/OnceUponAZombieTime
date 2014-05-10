@@ -14,6 +14,7 @@ define( ['DREAM_ENGINE'], function(DE)
 	      "x": this.startpos.x + ((this.idCase % 8) * this.width),
 	      "y": this.startpos.y + (Math.floor( this.idCase / 6) * this.heigth),
 	      "tag": this.comportement,
+	      "renderer": new DE.SpriteRenderer( { "spriteName": "heart", "scale": 0.9 } ),
 	      "collider": new DE.CircleCollider( this.width/2 )
 	    });
 	    console.log(this.position.x + " " + this.position.y);

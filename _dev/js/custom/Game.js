@@ -94,7 +94,7 @@ function( DE, Player, Enemy, datas)
   
   Game.startGame = function( bench )
   {
-    Game.scene.add( new DE.GameObject( { "x": Game.screen.w / 2, "y": Game.screen.h / 2, "renderer": new DE.SpriteRenderer( { "spriteName": "background", "scale": 0.67 } ) } ) );
+    Game.scene.add( new DE.GameObject( { "x": Game.screen.w / 2, "y": Game.screen.h / 2, "z": 3, "renderer": new DE.SpriteRenderer( { "spriteName": "background", "scale": 0.9 } ) } ) );
     
     Game.menuBtn = new DE.GameObject( {
         "x": Game.screen.w / 1.2, "y": Game.screen.h / 20

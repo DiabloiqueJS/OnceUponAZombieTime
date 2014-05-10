@@ -54,7 +54,7 @@ function( datas, DE, Bullet )
               return;
 
             this.lastFire = Date.now();
-            Game.castle.getDamage(5);
+            Game.castle.getDamage(10);
 
           }
         }
@@ -82,10 +82,10 @@ function( datas, DE, Bullet )
     {
       this.life--;
       life.renderers[0].sizes.width = (this.life / this.maxlife)* this.lifeWidth;
-      console.log((this.life / this.maxlife));
-      if ( this.life <= 0 )
+      
+      if ( this.life <= 0 ){
         Game.gold += 10;
-        this.askToKill();
+        this.askToKill();}
     }
     
     this.addAutomatism( "IA", "gameLogic" );

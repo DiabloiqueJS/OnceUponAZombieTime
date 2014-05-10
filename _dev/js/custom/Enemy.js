@@ -9,7 +9,7 @@ function( datas, DE, Bullet )
   {
     var _myd = datas.enemies[ params.name ];
     DE.GameObject.call( this, {
-      "x": params.x, "y": params.y, "name": params.name, "tag": "enemy"
+      "x": _screenSizes.w/*params.x*/, "y": params.y, "name": params.name, "tag": "enemy"
       ,"renderer": new DE.SpriteRenderer( { "spriteName": _myd.spriteName
                                          , "startFrame": _myd.frame, "scale": _myd.scale || 1 } )
       ,"collider": new DE.CircleCollider( _myd.radius || 50
@@ -20,20 +20,20 @@ function( datas, DE, Bullet )
     this.fireRate   = _myd.fireRate;
     this.life       = _myd.life;
     this.offsetFire = _myd.offsetFire || 0;
-    this.speed      = _myd.speed || 4;
+    this.speed      = 1;
     
     this.gameLogic = function()
     {
-      if ( this.position.y > 1400 )
+      /*if ( this.position.y > 1400 )
         this.askToKill();
       if ( _player.enable && !_player.flipping
           && DE.CollisionSystem.circleCollision( this.collider, _player.collider ) )
       {
         this.askToKill();
         _player.getDamage();
-      }
-      this.translateY( this.speed );
-      this.fire();
+      }*/
+      this.translateX( -this.speed );
+     // this.fire();
     }
     // very simple fire method, just a fireRate
     this.fire = function()
@@ -41,7 +41,7 @@ function( datas, DE, Bullet )
       if ( !this.enable || !this.fireRate || Date.now() - this.lastFire < this.fireRate )
         return;
       this.lastFire = Date.now();
-      this.scene.add( new Bullet( _screenSizes, this, _player ) );
+      //this.scene.add( new Bullet( _screenSizes, this, _player ) );
     }
     
     this.getDamage = function()

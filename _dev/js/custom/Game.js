@@ -122,7 +122,7 @@ function( DE, Player, Enemy, datas)
   }
   
   // simple waves spawner
- /* var _lastCheck = undefined, _firstCheck, _currentWave = undefined;
+  var _lastCheck = undefined, _firstCheck, _currentWave = undefined;
   Game.checkSpawns = function( time )
   {
     if ( !Game.run )
@@ -155,7 +155,7 @@ function( DE, Player, Enemy, datas)
         Game.scene.add( new Enemy( Game.screen, e, Game.player ) );
       }
     }
-  }*/
+  }
   
   window.Game = Game; // debug only
   return Game;

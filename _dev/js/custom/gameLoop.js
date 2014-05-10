@@ -11,7 +11,7 @@ function( DreamE, Game )
 {
   function gameLoop( time )
   {
-   // Game.checkSpawns( time );
+     Game.checkSpawns( time );
   }
   
   return gameLoop;

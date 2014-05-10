@@ -46,6 +46,7 @@ function( CONFIG )
           , "isAnimated": true, "isLoop": true } ]
       ,[ "heart", "heart", "png", { "load": true, "totalFrame": 1, "isAnimated": false } ]
       ,[ "bullet", "bullet", "png", { "load": true, "totalFrame": 1, "isAnimated": false } ]
+      ,[ "background", "background", "jpg", { "load": true, "totalFrame": 1, "isAnimated": false } ]
       ,[ "btn", "btn", "png", { "load": true, "totalFrame": 3, "isAnimated": false } ]
     ]
   };

@@ -8,6 +8,10 @@ define( ['DREAM_ENGINE'], function(DE)
 		this.startpos = {x: 212 * 0.67, y:209 * 0.6666666666666666666666666666666};
 		this.life = 100;
 
+<<<<<<< HEAD
+=======
+		
+>>>>>>> 148a7ddd045b659cf94d5dda50ad9227859bc086
 		DE.GameObject.call(this,
 		{
 	      "x": this.startpos.x + ((this.idCase % 10) * this.width) + this.width / 2,
@@ -16,6 +20,10 @@ define( ['DREAM_ENGINE'], function(DE)
 	      "renderer": new DE.SpriteRenderer( { "spriteName": "heart", "scale": 1 * 0.6666666666666666666 } ),
 	      "collider": new DE.CircleCollider( this.width/2 )
 	    });
+<<<<<<< HEAD
+=======
+
+>>>>>>> 148a7ddd045b659cf94d5dda50ad9227859bc086
 	}
 
 	Trap.prototype = new DE.GameObject();

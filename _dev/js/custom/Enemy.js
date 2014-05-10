@@ -18,7 +18,7 @@ function( datas, DE, Bullet )
     
     this.lastFire   = Date.now();
     this.fireRate   = _myd.fireRate;
-    this.life       = _myd.life;
+    this.life       =  10;
     this.offsetFire = _myd.offsetFire || 0;
     this.speed      = 1;
     

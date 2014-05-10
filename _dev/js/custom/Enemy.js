@@ -26,6 +26,9 @@ function( datas, DE, Bullet )
     this.maxlife    =  10;
     this.offsetFire = _myd.offsetFire || 0;
     this.speed      = 1;
+    this.walk       = true;
+
+    //var Castle = Game.castle;
     
     this.init = function()
     {
@@ -44,7 +47,15 @@ function( datas, DE, Bullet )
         this.askToKill();
         _player.getDamage();
       }*/
-      this.translateX( -this.speed );
+
+     /* if(DE.CollisionSystem.circleCollision( this.collider, Castle.collider )){
+        this.walk = false;
+      }*/
+
+      if(this.walk){
+        this.translateX( -this.speed );
+      }
+
      // this.fire();
     }
     // very simple fire method, just a fireRate

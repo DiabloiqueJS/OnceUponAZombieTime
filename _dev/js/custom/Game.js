@@ -10,8 +10,8 @@
  there is no "end" and no menus, it's a very lite "how to" for basics
  and you can create complete game with this :)
 **/
-define( [ 'DREAM_ENGINE', 'Player', 'Enemy', 'datas'],
-function( DE, Player, Enemy, datas)
+define( [ 'DREAM_ENGINE', 'Player', 'Enemy', 'datas', 'Trap'],
+function( DE, Player, Enemy, datas, Trap)
 {
   var Game = {};
   
@@ -178,6 +178,11 @@ function( DE, Player, Enemy, datas)
     Game.player.createGui();
     Game.player.on( "restart", function(){ Game.startGame( Game.benchmark ); } );
     Game.player.enable = false;
+
+    Game.cases = new Array();
+    for (var i = 0; i < 48; i++) {
+      Game.cases[i] = new Trap("normal", i);
+    };
     
 
     for ( var n = 0; n < Game.scene.gameObjects.length; ++n )

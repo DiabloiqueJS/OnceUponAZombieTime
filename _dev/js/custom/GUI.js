@@ -37,7 +37,7 @@ function( datas, DE, GamePad, Player)
 		    Game.trap2 = new DE.GameObject( {
 		        "x": Game.screen.w / 1.15, "y": Game.screen.h / 1.07
 		        , "renderers": [
-		          new DE.SpriteRenderer( { "spriteName": "wallIcon", "scale": 0.67 } )
+		          new DE.SpriteRenderer( { "spriteName": "stabIcon", "scale": 0.67 } )
 		        ]
 		        , "collider": new DE.FixedBoxCollider( 120 * 0.67, 120 * 0.67 )
 		    } );
@@ -52,7 +52,7 @@ function( datas, DE, GamePad, Player)
 		    Game.trap3 = new DE.GameObject( {
 		        "x": Game.screen.w / 1.27, "y": Game.screen.h / 1.07
 		        , "renderers": [
-		          new DE.SpriteRenderer( { "spriteName": "stabIcon", "scale": 0.67 } )
+		          new DE.SpriteRenderer( { "spriteName": "wallIcon", "scale": 0.67 } )
 		        ]
 		        , "collider": new DE.FixedBoxCollider( 120 * 0.67, 120 * 0.67 )
 		    });

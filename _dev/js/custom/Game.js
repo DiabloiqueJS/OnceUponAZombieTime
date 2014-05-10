@@ -180,8 +180,9 @@ function( DE, Player, Enemy, datas, Trap)
     Game.player.enable = false;
 
     Game.cases = new Array();
-    for (var i = 0; i < 48; i++) {
+    for (var i = 0; i < 60; i++) {
       Game.cases[i] = new Trap("normal", i);
+      Game.scene.add(Game.cases[i]);
     };
     
 

@@ -21,7 +21,7 @@ function( datas, DE, Bullet )
     } ) );
     this.lifeWidth  = life.renderers[0].sizes.width;
     this.lastFire   = Date.now();
-    this.fireRate   = _myd.fireRate;
+    this.fireRate   = 1500;
     this.life       =  10;
     this.maxlife    =  10;
     this.offsetFire = _myd.offsetFire || 0;
@@ -29,13 +29,7 @@ function( datas, DE, Bullet )
     this.walk       = true;
 
     //var Castle = Game.castle;
-    
-    this.init = function()
-    {
-      this.lifeWidth = life.renderers[0].sizes.width;
-    }
-
-
+   
     this.gameLogic = function()
     {
       
@@ -50,6 +44,7 @@ function( datas, DE, Bullet )
 
      /* if(DE.CollisionSystem.circleCollision( this.collider, Castle.collider )){
         this.walk = false;
+        this.fire(Castle);
       }*/
 
       if(this.walk){
@@ -59,11 +54,12 @@ function( datas, DE, Bullet )
      // this.fire();
     }
     // very simple fire method, just a fireRate
-    this.fire = function()
+    this.fire = function(cible)
     {
       if ( !this.enable || !this.fireRate || Date.now() - this.lastFire < this.fireRate )
         return;
       this.lastFire = Date.now();
+      cible.life -= 5;
       //this.scene.add( new Bullet( _screenSizes, this, _player ) );
     }
     
@@ -73,6 +69,7 @@ function( datas, DE, Bullet )
       life.renderers[0].sizes.width = (this.life / this.maxlife)* this.lifeWidth;
       console.log((this.life / this.maxlife));
       if ( this.life <= 0 )
+        Game.gold += 10;
         this.askToKill();
     }
     

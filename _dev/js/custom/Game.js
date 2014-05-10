@@ -10,10 +10,12 @@
  there is no "end" and no menus, it's a very lite "how to" for basics
  and you can create complete game with this :)
 **/
-define( [ 'DREAM_ENGINE', 'Player', 'Enemy', 'datas', 'Trap'],
-function( DE, Player, Enemy, datas, Trap)
+define( [ 'DREAM_ENGINE', 'Player', 'Enemy', 'datas', 'Trap', 'Castle'],
+function( DE, Player, Enemy, datas, Trap, Castle)
 {
   var Game = {};
+
+  Game.gold = 100;
   
   // init
   Game.init = function()
@@ -95,7 +97,9 @@ function( DE, Player, Enemy, datas, Trap)
   Game.startGame = function( bench )
   {
     Game.scene.add( new DE.GameObject( { "x": Game.screen.w / 2, "y": Game.screen.h / 2, "z": 3, "renderer": new DE.SpriteRenderer( { "spriteName": "background", "scale": 0.867 } ) } ) );
-    
+    Game.castle = new Castle(Game.screen);
+    Game.scene.add ( Game.castle);
+    Game.castle.init();
     Game.menuBtn = new DE.GameObject( {
         "x": Game.screen.w / 1.2, "y": Game.screen.h / 20
         , "renderers": [

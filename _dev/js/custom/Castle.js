@@ -34,50 +34,41 @@ function( datas, DE, GamePad, Enemy, Player)
 
 	    this.gameover = function(){
 
-      this.gui = new DE.GameObject( { "x": _screenSizes.w / 2, "y": _screenSizes.h / 2, "zindex": 25 } );
-      var loose = new DE.GameObject( {
-        "renderer": new DE.TextRenderer( {
-           "fontSize": 64, "font": "Arial Black" // not a nice font but just to show you how to :)
-        }, 700, 100, DE.LangSystem.get( "loose" ) )
-      } );
-      this.gui.restartBtn = new DE.GameObject( {
-        "y": 150
-        , "renderers": [
-          new DE.SpriteRenderer( { "spriteName": "btn" } )
-          , new DE.TextRenderer( {
-            "fontSize": 32, "font": "Arial Black"
-          }, 300, 60, DE.LangSystem.get( "replay" ) )
-        ]
-        , "collider": new DE.FixedBoxCollider( 550, 70 )
-      } );
-      this.gui.restartBtn.onMouseEnter = function()
-      {
-        this.renderers[ 0 ].setFrame( 1 );
-      }
-      this.gui.restartBtn.onMouseLeave = function()
-      {
-        this.renderers[ 0 ].setFrame( 0 );
-      }
-      this.gui.restartBtn.onMouseUp = function()
-      {
-        this.parent.enable = false;
-        this.renderers[ 0 ].setFrame( 0 );
-        _self.trigger( "restart" ); // use trigger method - Game will catch it
-      }
-      this.gui.add( loose );
-      this.gui.add( this.gui.restartBtn );
-      this.scene.add( this.gui );
-      this.gui.enable = false;
-    }
-    
-    // register down keys to detect a flip intention
-    DE.Inputs.on( "keyDown", "left", function(){ _self.flip( -1 ) } );
-    DE.Inputs.on( "keyDown", "right", function(){ _self.flip( 1 ) } );
-    // when menu is up, check gamePad keys
-    DE.Inputs.on( "keyDown", "confirm", function(){
-      if ( _self.gui.enable )
-        _self.gui.restartBtn.onMouseUp();
-    } );
+		      this.gui = new DE.GameObject( { "x": _screenSizes.w / 2, "y": _screenSizes.h / 2, "zindex": 25 } );
+		      var loose = new DE.GameObject( {
+		        "renderer": new DE.TextRenderer( {
+		           "fontSize": 64, "font": "Arial Black" // not a nice font but just to show you how to :)
+		        }, 700, 100, DE.LangSystem.get( "loose" ) )
+		      } );
+		      this.gui.restartBtn = new DE.GameObject( {
+		        "y": 150
+		        , "renderers": [
+		          new DE.SpriteRenderer( { "spriteName": "btn" } )
+		          , new DE.TextRenderer( {
+		            "fontSize": 32, "font": "Arial Black"
+		          }, 300, 60, DE.LangSystem.get( "replay" ) )
+		        ]
+		        , "collider": new DE.FixedBoxCollider( 550, 70 )
+		      } );
+		      this.gui.restartBtn.onMouseEnter = function()
+		      {
+		        this.renderers[ 0 ].setFrame( 1 );
+		      }
+		      this.gui.restartBtn.onMouseLeave = function()
+		      {
+		        this.renderers[ 0 ].setFrame( 0 );
+		      }
+		      this.gui.restartBtn.onMouseUp = function()
+		      {
+		        this.parent.enable = false;
+		        this.renderers[ 0 ].setFrame( 0 );
+		        _self.trigger( "restart" ); // use trigger method - Game will catch it
+		      }
+		      this.gui.add( loose );
+		      this.gui.add( this.gui.restartBtn );
+		      this.scene.add( this.gui );
+		    }
+		   
     
 	    
 

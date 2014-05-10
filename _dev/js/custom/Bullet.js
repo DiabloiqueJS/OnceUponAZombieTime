@@ -13,13 +13,23 @@ define( [ "datas", "DREAM_ENGINE" ]
       , "collider": new DE.CircleCollider( 10 )
     } );
     this.vector = { x: 0, y: 0 };
-       
+    this.speed = 10;
+    this.cible = false;
+
+    this.init = function()
+    {
+      //this.position.setRotation( rotation );
+    }
     
     this.gameLogic = function()
     {
-      this.translate( {x: theTarget.x, y: theTarget.y}, true );
-       console.log(this.position.x +" _ "+ theTarget.x);
-    
+      if(!this.cible){
+        this.lookAt( theTarget );
+        this.cible = true;
+      }
+
+        this.translate( {x: 0, y: -this.speed}, false );
+
       if ( this.position.y < -50 || this.position.y > _screenSizes.h + 50 )
         this.askToKill();
       

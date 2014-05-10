@@ -39,6 +39,7 @@ require.config( {
     ,'datas'          : 'custom/datas'
     ,'main'           : 'main'
     ,'Trap'           : 'custom/Trap'
+    ,'GUI'            : 'custom/GUI'
     
     // platforms
     ,'W8'          : 'platforms/w8/Windows8App'

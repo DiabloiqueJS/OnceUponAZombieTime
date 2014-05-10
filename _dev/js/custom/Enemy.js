@@ -17,7 +17,7 @@ function( datas, DE, Bullet )
     } );
     var life;
     this.add( life = new DE.GameObject( {
-      "x": 0, "y": -80, "z": 5, "renderer": new DE.SpriteRenderer( { "spriteName": "life", "scaleY": 0.6, "scaleX": 0.3 } )
+      "x": 0, "y": -80, "z": 1, "renderer": new DE.SpriteRenderer( { "spriteName": "life", "scaleY": 0.6, "scaleX": 0.3 } )
     } ) );
     this.lifeWidth  = life.renderers[0].sizes.width;
     this.lastFire   = Date.now();
@@ -28,25 +28,38 @@ function( datas, DE, Bullet )
     this.speed      = 1;
     this.walk       = true;
 
-    //var Castle = Game.castle;
-   
     this.gameLogic = function()
     {
       
-      /*if ( this.position.y > 1400 )
-        this.askToKill();
-      if ( _player.enable && !_player.flipping
-          && DE.CollisionSystem.circleCollision( this.collider, _player.collider ) )
-      {
-        this.askToKill();
-        _player.getDamage();
-      }*/
+      var gos = this.scene.gameObjects;
+        for ( var n = 0, t = gos.length, g; n < t; ++n )
+        {
+          g = gos[ n ];
+          if ( g.tag == "castle" && DE.CollisionSystem.circleCollision( this.collider, g.collider ) )
+          {
+            this.walk = false;
+            
+            if ( !this.enable || !this.fireRate || Date.now() - this.lastFire < this.fireRate )
+              return;
+            this.lastFire = Date.now();
+            g.getDamage(5);
 
-     /* if(DE.CollisionSystem.circleCollision( this.collider, Castle.collider )){
-        this.walk = false;
-        this.fire(Castle);
-      }*/
+            return;
+          }
 
+          if(this.position.x<=200){
+            this.walk = false;
+
+            if ( !this.enable || !this.fireRate || Date.now() - this.lastFire < this.fireRate )
+              return;
+
+            this.lastFire = Date.now();
+            Game.castle.getDamage(5);
+
+          }
+        }
+
+    
       if(this.walk){
         this.translateX( -this.speed );
       }
@@ -59,7 +72,9 @@ function( datas, DE, Bullet )
       if ( !this.enable || !this.fireRate || Date.now() - this.lastFire < this.fireRate )
         return;
       this.lastFire = Date.now();
-      cible.life -= 5;
+      
+
+      
       //this.scene.add( new Bullet( _screenSizes, this, _player ) );
     }
     

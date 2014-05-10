@@ -22,13 +22,22 @@ define( [ "datas", "DREAM_ENGINE" ]
     }
     
     this.gameLogic = function()
-    {
+    { 
+      
       if(!this.cible){
         this.lookAt( theTarget );
-        this.cible = true;
       }
-
+      if(theTarget.y <= _screenSizes.h /3)
+      {
+        this.cible = true;
+        theTarget.x += theTarget.x;
+        theTarget.y += theTarget.y;
+      }
         this.translate( {x: 0, y: -this.speed}, false );
+     
+     if ( DE.CollisionSystem.pointCircleCollision( theTarget, this.collider ) ){
+       this.askToKill();
+     }
 
       if ( this.position.y < -50 || this.position.y > _screenSizes.h + 50 )
         this.askToKill();

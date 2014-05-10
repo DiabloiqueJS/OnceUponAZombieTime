@@ -172,7 +172,9 @@ function( DE, Player, Enemy, datas, Trap, Castle, GuiLabel, GuiImage)
     }
     Game.scene.add( Game.trap3 );
 
-    Game.scene.add(new DE.GuiLabel( { 'id': "score", "fontSize": 40, 'font': "Arial", "zindex": 10 , 'x': 0, 'y': 0, "w": 300, "h": 80, "fillColor": "rgb(255,200,0)", "strokeColor": "red"} , "Score : "+ Game.gold +" m" ));
+    Game.scene.add(new DE.GuiLabel( { 'id': "score", "fontSize": 40, 'font': "Arial",
+     "zindex": 10 , 'x': 50, 'y': 50, "w": 300, "h": 80, "fillColor": "rgb(255,200,0)", "strokeColor": "red"} 
+     , "Score : "+ Game.gold +" m" ));
 
     Game.run = true;
     Game.benchmark = bench;

@@ -5,8 +5,8 @@ function( datas, DE, GamePad, Bullet )
   function Player( _screenSizes )
   {
     DE.GameObject.call( this, {
-      "x": _screenSizes.w / 2, "y": _screenSizes.h - 280, "zindex": 5, "tag": "player"
-      ,"renderer": new DE.SpriteRenderer( { "spriteName": "ship", "scale": 0.7 } )
+      "x": _screenSizes.w / 2, "y": _screenSizes.h - 280, "zindex": 1, "tag": "player"
+      ,"renderer": new DE.SpriteRenderer( { "spriteName": "ship", "scale": 0.3 } )
       ,"collider": new DE.CircleCollider( 20 )
     } );
     
@@ -19,11 +19,13 @@ function( datas, DE, GamePad, Bullet )
     this.speed = 10;
     this.axes  = { x: 0, y: 0 };
     this.life  = 3;
+    this.myTarget;
+
     
     this.init = function()
     {
      this.life = 3;
-      this.position.setPosition( _screenSizes.w / 2, _screenSizes.h - 280 );
+      this.position.setPosition( 50, _screenSizes.h /3 );
       this.enable = true;
       /*
      for ( var i = 0; i < this.hearts.length; ++i )
@@ -46,45 +48,16 @@ function( datas, DE, GamePad, Bullet )
     }
     this.checkInputs = function()
     {
-      this.checkPos();
-      if ( this.flipping )
-      {
-        this.translateX( this.speed * _lastDir );
-        return;
-      }
-      
-      // translate along axes
-      var axeH = this.axes.x;
-      var axeV = this.axes.y;
-      if ( DE.Inputs.key( "up" ) )
-        axeV = -1;
-      else if ( DE.Inputs.key( "down" ) )
-        axeV = 1;
-      if ( DE.Inputs.key( "left" ) )
-        axeH = -1;
-      else if ( DE.Inputs.key( "right" ) )
-        axeH = 1;
-      
-      // keyboard can axe to 1-1 cut it to 1/2-1/2 like gamepad axe
-      if ( Math.abs( axeV ) == 1 && Math.abs( axeH ) == 1 )
-      {
-        axeV = axeV * 0.5;
-        axeH = axeH * 0.5;
-      }
-      
-      // little animation
-      if ( axeH > 0 )
-        this.renderers[ 0 ].setFrame( 1 );
-      else if ( axeH < 0 )
-        this.renderers[ 0 ].setFrame( 9 );
-      else
-        this.renderers[ 0 ].setFrame( 0 );
-      
-      this.translate( { x: axeH * this.speed, y: axeV * this.speed } );
-      
+     
       // here chek the fire button input (gamepad and keyboard)
       if ( DE.Inputs.key( "fire" ) )
         this.fire();
+    }
+
+    Game.camera.onMouseClick = function(mouse){
+     // this.myTarget = {mouse.x, mouse.y};
+     console.log(mouse.x);
+      this.scene.add( new Bullet( _screenSizes, this, this.myTarget) );
     }
     
     // make bullet

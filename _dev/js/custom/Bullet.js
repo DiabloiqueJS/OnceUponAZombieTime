@@ -3,14 +3,14 @@ define( [ "datas", "DREAM_ENGINE" ]
 {
   // args are written with a _ because they become private (we use args later in methods)
   // player reference is optionnal, only when it's an enemy instantiating a bullet
-  function Bullet( _screenSizes, _parent, _player )
+  function Bullet( _screenSizes, _parent, theTarget )
   {
     DE.GameObject.call( this, {
       "x": _parent.position.x, "y": _parent.position.y, "zindex": _parent.zindex + 1
       , "tag": _parent.tag == "player" ? "b-p" : "b-e"
-      , "renderer": new DE.SpriteRenderer( { "spriteName": ( _parent.tag == "player" ? "p" : "e" ) + "-fire"
+      , "renderer": new DE.SpriteRenderer( { "spriteName": "bullet"/*( _parent.tag == "player" ? "p" : "e" ) + "-fire"*/
                                           , "scale": 0.7 } )
-      , "collider": new DE.CircleCollider( 30 )
+      , "collider": new DE.CircleCollider( 10 )
     } );
     this.vector = { x: 0, y: 0 };
     
@@ -26,16 +26,11 @@ define( [ "datas", "DREAM_ENGINE" ]
         this.restartAnim();
       }
     }
-    else
-    {
-      this.position.y += datas.enemies[ _parent.name ].bulletOffset;
-      this.vector.y = 10;
-      this.tag = "e-bullet";
-    }
+    
     
     this.gameLogic = function()
     {
-      this.translate( this.vector );
+      this.translate( theTarget );
       
       if ( this.position.y < -50 || this.position.y > _screenSizes.h + 50 )
         this.askToKill();

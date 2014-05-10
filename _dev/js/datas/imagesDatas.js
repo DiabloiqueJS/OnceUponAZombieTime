@@ -23,8 +23,8 @@ function( CONFIG )
   var datas = {
     // avalaible images sizes (engine will load optimisest images depends on user resolution)
     screenSizes: [
-      { "w": 1920, "h": 1080, "path": "hd" }
-      ,{ "w": 1280, "h": 720, "path": "sd"}
+      { "w": 1920, "h": 1080, "path": "hd/" }
+      ,{ "w": 1280, "h": 720, "path": "sd/"}
     ]
     
     // index of the used screen size during game conception

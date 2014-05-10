@@ -10,8 +10,8 @@
  there is no "end" and no menus, it's a very lite "how to" for basics
  and you can create complete game with this :)
 **/
-define( [ 'DREAM_ENGINE', 'Player', 'Enemy', 'datas', 'Trap'],
-function( DE, Player, Enemy, datas, Trap )
+define( [ 'DREAM_ENGINE', 'Player', 'Enemy', 'datas'],
+function( DE, Player, Enemy, datas)
 {
   var Game = {};
   

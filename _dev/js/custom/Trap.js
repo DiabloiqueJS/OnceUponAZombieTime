@@ -11,8 +11,8 @@ define( ['DREAM_ENGINE'], function(DE)
 		console.log((this.startpos.x + (this.idCase % 8) * this.width) + " " + (this.startpos.y + (Math.floor( this.idCase / 6) * this.heigth)))
 		DE.GameObject.call(this,
 		{
-	      "x": this.startpos.x + ((this.idCase % 10) * this.width) + this.width / 3.5,
-	      "y": this.startpos.y + (Math.floor( this.idCase / 10) * this.heigth) + this.heigth / 2.3,
+	      "x": this.startpos.x + ((this.idCase % 10) * this.width) + this.width / 2,
+	      "y": this.startpos.y + (Math.floor( this.idCase / 10) * this.heigth) + this.heigth / 2,
 	      "tag": this.comportement,
 	      "renderer": new DE.SpriteRenderer( { "spriteName": "heart", "scale": 1 * 0.6666666666666666666 } ),
 	      "collider": new DE.CircleCollider( this.width/2 )

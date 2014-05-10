@@ -5,14 +5,11 @@ function( datas, DE, GamePad, Player)
     {
 	    this.init = function(){
 	    	Game.menuBtn = new DE.GameObject( {
-		        "x": Game.screen.w / 1.2, "y": Game.screen.h / 20
-		        , "renderers": [
-		          new DE.SpriteRenderer( { "spriteName": "btn", "scale": 0.67 } )
-		          , new DE.TextRenderer( {
-		            "fontSize": 32, "font": "Arial Black" // not a nice font but just to show you how to :)
-		          }, 500, 60, DE.LangSystem.get( "play" ) )
+		        "x": Game.screen.w / 1.03, "y": Game.screen.h / 20
+		        ,"renderers": [
+		          new DE.SpriteRenderer( { "spriteName": "closeIcon", "scale": 0.67 } )
 		        ]
-		        , "collider": new DE.FixedBoxCollider( 550, 70 )
+		        , "collider": new DE.FixedBoxCollider( 104 * 0.67, 103 * 0.67 )
 		    } );
 		    Game.menuBtn.onMouseEnter = function(){ this.renderers[ 0 ].setFrame( 1 ); }
 		    Game.menuBtn.onMouseLeave = function(){ this.renderers[ 0 ].setFrame( 0 ); }
@@ -25,7 +22,7 @@ function( datas, DE, GamePad, Player)
 		    Game.trap1 = new DE.GameObject( {
 		        "x": Game.screen.w / 1.05, "y": Game.screen.h / 1.07
 		        , "renderers": [
-		          new DE.SpriteRenderer( { "spriteName": "hole", "scale": 0.67 } )
+		          new DE.SpriteRenderer( { "spriteName": "holeIcon", "scale": 0.67 } )
 		        ]
 		        , "collider": new DE.FixedBoxCollider( 120 * 0.67, 120 * 0.67 )
 		    } );
@@ -40,7 +37,7 @@ function( datas, DE, GamePad, Player)
 		    Game.trap2 = new DE.GameObject( {
 		        "x": Game.screen.w / 1.15, "y": Game.screen.h / 1.07
 		        , "renderers": [
-		          new DE.SpriteRenderer( { "spriteName": "wall", "scale": 0.67 } )
+		          new DE.SpriteRenderer( { "spriteName": "wallIcon", "scale": 0.67 } )
 		        ]
 		        , "collider": new DE.FixedBoxCollider( 120 * 0.67, 120 * 0.67 )
 		    } );
@@ -55,7 +52,7 @@ function( datas, DE, GamePad, Player)
 		    Game.trap3 = new DE.GameObject( {
 		        "x": Game.screen.w / 1.27, "y": Game.screen.h / 1.07
 		        , "renderers": [
-		          new DE.SpriteRenderer( { "spriteName": "stab", "scale": 0.67 } )
+		          new DE.SpriteRenderer( { "spriteName": "stabIcon", "scale": 0.67 } )
 		        ]
 		        , "collider": new DE.FixedBoxCollider( 120 * 0.67, 120 * 0.67 )
 		    });

@@ -1,5 +1,5 @@
-define( [ 'datas', 'DREAM_ENGINE', 'Bullet', 'GUI' ],
-function( datas, DE, Bullet, GUI )
+define( [ 'datas', 'DREAM_ENGINE', 'Bullet', 'GUI', 'Trap' ],
+function( datas, DE, Bullet, GUI, Trap )
 {
   // args are written with a _ because they become private (we use args later in methods)
   // optimising performances here by passing the player to check collisions only with this objects
@@ -65,6 +65,29 @@ function( datas, DE, Bullet, GUI )
             return;
           }
 
+
+          if ( g.tag == "hole" && DE.CollisionSystem.circleCollision( this.collider, g.collider ) )
+          {
+            this.walk = false;
+            this.askToKill();
+            g.clean();
+
+            return;
+          }
+
+
+          if ( g.tag == "stab" && DE.CollisionSystem.circleCollision( this.collider, g.collider ) )
+          {
+             if ( !this.enable || !this.fireRate || Date.now() - this.lastFire < (this.fireRate/2) )
+              return;
+              this.lastFire = Date.now();
+              this.getDamage();
+              console.log(this.walk);
+
+            return;
+          }
+
+
           if(this.position.x<=200){
             this.walk = false;
 
@@ -77,9 +100,9 @@ function( datas, DE, Bullet, GUI )
           }
         }
 
-    
       if(this.walk){
         this.translateX( -this.speed );
+
       }
 
      // this.fire();

@@ -38,7 +38,7 @@ function( CONFIG )
       [ "ship", "knight-idle", "png", { "load": true, "totalFrame": 5, "eachAnim": 80
         , "isAnimated": true, "isLoop": false } ]
       ,[ "shipatk", "knight-atk", "png", { "load": true, "totalFrame": 5, "eachAnim": 80
-        , "isAnimated": true, "isLoop": true } ]
+        , "isAnimated": true, "isLoop": false } ]
       ,[ "p-fire", "p-fire", "png", { "load": true, "totalFrame": 10, "eachAnim": 40
           , "isAnimated": true, "isLoop": false } ]
       ,[ "enemies", "zombie-walk", "png", { "load": true, "totalFrame": 2, "isAnimated": true, "isLoop": true, "eachAnim": 120 } ]

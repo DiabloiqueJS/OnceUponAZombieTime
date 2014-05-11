@@ -33,7 +33,7 @@ function(DE, GUI)
 			      "y": this.startpos.y + (Math.floor( this.idCase / 10) * this.heigth) + this.heigth / 2,
 			      "tag": "hole",
 			      "renderer": new DE.SpriteRenderer( { "spriteName": "hole", "scale": 1 * 0.6666666666666666666 } ),
-			      "collider": new DE.CircleCollider( this.width/2 )
+			      "collider": new DE.CircleCollider( this.width/8 )
 			    });
 
 	    	}

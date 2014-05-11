@@ -6,7 +6,7 @@ function( datas, DE, GamePad, Bullet )
   {
     DE.GameObject.call( this, {
       "x": _screenSizes.w / 2, "y": _screenSizes.h - 280, "zindex": 1, "tag": "player"
-      ,"renderer": new DE.SpriteRenderer( { "spriteName": "ship", "scale": 0.1 } )
+      ,"renderer": new DE.SpriteRenderer( { "spriteName": "shipatk", "scale": 0.1 } )
     } );
     
     var _self = this;
@@ -39,19 +39,19 @@ function( datas, DE, GamePad, Bullet )
     }
     this.checkInputs = function()
     {
-     
-      // here chek the fire button input (gamepad and keyboard)
-      if ( DE.Inputs.key( "fire" ) )
-        this.fire();
     }
 
     Game.camera.onMouseClick = function(mouse){
-     this.myTarget = {x: mouse.x, y: mouse.y};
+       this.myTarget = {x: mouse.x, y: mouse.y};
 
-     if(!Game.play)
-      return;
+       if(!Game.play)
+        return;
 
-      this.scene.add( new Bullet( _screenSizes, this, this.myTarget) );
+       DE.GameObject.call( Game.player, {
+      "x": 50, "y": _screenSizes.h /3, "zindex": 1, "tag": "player"
+      ,"renderer": new DE.SpriteRenderer( { "spriteName": "shipatk", "scale": 0.1 } )
+    } );
+        this.scene.add( new Bullet( _screenSizes, this, this.myTarget) );
     }
     
     // make bullet

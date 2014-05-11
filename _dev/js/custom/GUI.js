@@ -102,7 +102,8 @@ function( datas, DE, GamePad, Player, GuiLabel)
 	    	else
 	    		Game.trap1.renderers[ 0 ].setFrame( 0 );
 
-	    	console.log(GUI.select);
+	    	
+	     	console.log(Game.gui.select);
 
 	    }
 

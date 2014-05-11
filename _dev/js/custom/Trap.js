@@ -25,17 +25,19 @@ function(DE, GUI)
 		this.onMouseUp = function()
 	    {
 	    	if(Game.gui.select == "hole" ){
-	    		console.log(this);
+	    		console.log(this + "cest moi");
 	    	}
 	     	
 	    	if(Game.gui.select == "stab" ){
 	    		
+	    		console.log(this + "cest moi");
 	    	}
 	     	
 	    	if(Game.gui.select == "stab" ){
+	    		console.log(this + "cest moi");
 	    		
 	    	}
-	     	
+	     	console.log(Game.gui.select);
 	    }
 
 

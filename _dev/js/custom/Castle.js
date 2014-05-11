@@ -14,7 +14,7 @@ function( datas, DE, GamePad, Enemy, Player)
 	       "renderer": new DE.SpriteRenderer( { "spriteName": "life", "scaleY": 1, "scaleX": 0.5 })
 	    } ) );
 	    this.lifeWidth  = life.renderers[0].sizes.width;
-		this.life       =  100;
+		this.life       =  2000;
 	    this.maxlife    =  2000;
 
 

@@ -56,6 +56,9 @@ function( CONFIG )
       ,[ "closeIcon", "closeIcon", "png", { "load": true, "totalFrame": 2, "isAnimated": false } ]
       ,[ "life", "life", "png", { "load": true, "totalFrame": 1, "isAnimated": false } ]
       ,[ "rien", "gost", "png", { "load": true, "totalFrame": 1, "isAnimated": false } ]
+      ,[ "hole", "hole", "png", { "load": true, "totalFrame": 1, "isAnimated": false } ]
+      ,[ "stab", "stab", "png", { "load": true, "totalFrame": 1, "isAnimated": false } ]
+      ,[ "wall", "wall", "png", { "load": true, "totalFrame": 1, "isAnimated": false } ]
       ,[ "btn", "btn", "png", { "load": true, "totalFrame": 3, "isAnimated": false } ]
     ]
   };

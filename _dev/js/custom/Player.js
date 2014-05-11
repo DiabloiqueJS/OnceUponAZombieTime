@@ -11,11 +11,7 @@ function( datas, DE, GamePad, Bullet )
     } );
     
     var _self = this;
-   /* this.add( new DE.GameObject( {
-      "x": 0, "y": 120, "renderer": new DE.SpriteRenderer( { "spriteName": "reactor", "scale": 0.7 } )
-    } ) );
-    this.childrens[ 0 ].position.setRotation( Math.PI );
-    */
+  
     this.speed = 10;
     this.axes  = { x: 0, y: 0 };
     this.life  = 3;
@@ -27,11 +23,7 @@ function( datas, DE, GamePad, Bullet )
      this.life = 3;
       this.position.setPosition( 50, _screenSizes.h /3 );
       this.enable = true;
-      /*
-     for ( var i = 0; i < this.hearts.length; ++i )
-        this.hearts[ i ].enable = true;
-      */ 
-
+     
     }
     
     this.checkPos = function()
@@ -56,6 +48,9 @@ function( datas, DE, GamePad, Bullet )
 
     Game.camera.onMouseClick = function(mouse){
      this.myTarget = {x: mouse.x, y: mouse.y};
+
+     if(!Game.play)
+      return;
 
       this.scene.add( new Bullet( _screenSizes, this, this.myTarget) );
     }
@@ -98,17 +93,7 @@ function( datas, DE, GamePad, Bullet )
     this.hearts = [];
     this.createGui = function()
     {
-     /*for ( var i = 0; i < this.life; ++i )
-      {
-           var heart = new DE.GameObject( {
-          "x": i * 65 + 40, "y": _screenSizes.h - 60, "zindex": 20
-          , "renderer": new DE.SpriteRenderer( { "spriteName": "heart", "scale": 0.6 } )
-        } );
-        this.hearts.push( heart );
-        this.scene.add( heart );
-
-      }    */
-
+     
       this.gui = new DE.GameObject( { "x": _screenSizes.w / 2, "y": _screenSizes.h / 2, "zindex": 25 } );
       var loose = new DE.GameObject( {
         "renderer": new DE.TextRenderer( {

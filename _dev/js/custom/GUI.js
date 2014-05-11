@@ -34,7 +34,7 @@ function( datas, DE, GamePad, Player, GuiLabel)
 		    Game.trap1.onMouseLeave = function(){ /*this.renderers[ 0 ].setFrame( 0 );*/ }
 		    Game.trap1.onMouseUp = function()
 		    {
-		      GUI.select = "hole";
+		      Game.gui.select = "hole";
 		      Game.gui.update();
 		    }
 		    Game.scene.add( Game.trap1 );
@@ -50,7 +50,7 @@ function( datas, DE, GamePad, Player, GuiLabel)
 		    Game.trap2.onMouseLeave = function(){ /*this.renderers[ 0 ].setFrame( 0 );*/ }
 		    Game.trap2.onMouseUp = function()
 		    {
-		      GUI.select = "stab";
+		      Game.gui.select = "stab";
 		      Game.gui.update();
 		    }
 		    Game.scene.add( Game.trap2 );
@@ -66,7 +66,7 @@ function( datas, DE, GamePad, Player, GuiLabel)
 		    Game.trap3.onMouseLeave = function(){ /*this.renderers[ 0 ].setFrame( 0 );*/}
 		    Game.trap3.onMouseUp = function()
 		    {
-		      GUI.select = "wall";
+		      Game.gui.select = "wall";
 		      Game.gui.update();
 		    }
 		    Game.scene.add( Game.trap3 );
@@ -87,17 +87,17 @@ function( datas, DE, GamePad, Player, GuiLabel)
 	            "fontSize": 24, "font": "Arial Black" 
 	        }, 500, 60, "Gold: "+ Game.gold );
 
-	    	if(GUI.select == "wall")
+	    	if(Game.gui.select == "wall")
 	    		Game.trap3.renderers[ 0 ].setFrame( 1 );
 	    	else
 	    		Game.trap3.renderers[ 0 ].setFrame( 0 );
 
-	    	if(GUI.select == "stab")
+	    	if(Game.gui.select == "stab")
 	    		Game.trap2.renderers[ 0 ].setFrame( 1 );
 	    	else
 	    		Game.trap2.renderers[ 0 ].setFrame( 0 );
 
-	    	if(GUI.select == "hole")
+	    	if(Game.gui.select == "hole")
 	    		Game.trap1.renderers[ 0 ].setFrame( 1 );
 	    	else
 	    		Game.trap1.renderers[ 0 ].setFrame( 0 );

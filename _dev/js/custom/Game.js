@@ -13,22 +13,16 @@ function( DE, Player, Enemy, datas, Trap, Castle, GuiLabel, GuiImage, GUI)
     console.log( "Engine init" );
     DE.CONFIG.DEBUG_LEVEL = 5; // 5 for all debug
     
-    // create render
     Game.render = new DE.Render( "render", { fullScreen: "ratioStretch" } );
     Game.render.init();
     
-    // create scene - name it only
     Game.scene = new DE.Scene( "Test" );
     
-    // create your camera
     Game.camera = new DE.Camera( Game.screen.w, Game.screen.h, 0, 0, { 'name': "Test zoom 100%", 'backgroundColor': "rgb(50,50,200)" } );
     
-    // give a scene at the camera
     Game.camera.scene = Game.scene;
-    // bind it on the render
     Game.render.add( Game.camera );
     
-    // launch the engine
     DE.start();
   }
   

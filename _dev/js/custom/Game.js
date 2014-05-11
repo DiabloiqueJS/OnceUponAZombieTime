@@ -53,6 +53,7 @@ function( DE, Player, Enemy, datas, Trap, Castle, GuiLabel, GuiImage, GUI)
       /****/
 
     DE.AudioManager.fx.setVolume( 10 );
+    DE.AudioManager.music.stopAllAndPlay( "menu" );
     setTimeout( function(){ DE.States.down( "isLoading" ); }, 200 );
   };
   

@@ -6,13 +6,13 @@
       "loose"   : "You are dead"
       ,"replay" : "Replay ?"
       ,"play"   : "Play"
-      ,"benchmark"   : "Run benchmark"
+      ,"win"   : "Well play, your life and honor are safe!"
     }
     , "fr" : {
       "loose"   : "Vous êtes mort"
-      ,"replay" : "Rejouer ?"
+      ,"replay" : "Rejouer ?"      
       ,"play"   : "Jouer"
-      ,"benchmark"   : "Lancer le test"
+      ,"win"   : "Bien joué!"
     }
   };
   CONFIG.debug.log( "dictionary loaded", 3 );

@@ -6,6 +6,7 @@ function( DE, Player, Enemy, datas, Trap, Castle, GuiLabel, GuiImage, GUI)
 
   Game.play = false;
   Game.gold = 4000;
+  Game.thisWave = 0;
   
   // init
   Game.init = function()
@@ -69,8 +70,7 @@ function( DE, Player, Enemy, datas, Trap, Castle, GuiLabel, GuiImage, GUI)
     Game.castle.init();
 
     Game.run = true;
-    Game.benchmark = bench;
-    Game.benchBtn.enable = false;
+  
     Game.gameBtn.enable  = false;
     
     Game.player = new Player( Game.screen );
@@ -136,6 +136,8 @@ function( DE, Player, Enemy, datas, Trap, Castle, GuiLabel, GuiImage, GUI)
       for ( var i = 0, e; e = _currentWave.enemies[ i ]; ++i )
       {
         Game.scene.add( new Enemy( Game.screen, e, Game.player ) );
+
+        Game.thisWave ++;
       }
     }
   }

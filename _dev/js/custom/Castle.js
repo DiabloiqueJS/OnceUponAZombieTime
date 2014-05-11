@@ -22,6 +22,12 @@ function( datas, DE, GamePad, Enemy, Player)
 
 	    }
 
+	    this.update = function(){
+	    	if(Game.thisWave >= 20){
+	    		this.Win();
+	    	}
+	    }
+
 	    this.getDamage = function(dmg)
 	    {
 	      this.life -= dmg;
@@ -37,14 +43,15 @@ function( datas, DE, GamePad, Enemy, Player)
 
 		      this.gui = new DE.GameObject( { "x": _screenSizes.w / 2, "y": _screenSizes.h / 2, "zindex": 25 } );
 		      var loose = new DE.GameObject( {
-		        "renderer": new DE.TextRenderer( {
-		           "fontSize": 64, "font": "Arial Black" // not a nice font but just to show you how to :)
-		        }, 700, 100, DE.LangSystem.get( "loose" ) )
+		        "renderers":[ new DE.SpriteRenderer( { "spriteName": "Screen" } ) , 
+		        			new DE.TextRenderer( {
+		           "fontSize": 64, "font": "Amatic" // not a nice font but just to show you how to :)
+		        }, 700, 100, DE.LangSystem.get( "loose" ) )]
 		      } );
 		      this.gui.restartBtn = new DE.GameObject( {
 		        "y": 150
 		        , "renderers": [
-		          new DE.SpriteRenderer( { "spriteName": "btn" } )
+		          new DE.SpriteRenderer( { "spriteName": "btn", "scale": 0.8 } )
 		          , new DE.TextRenderer( {
 		            "fontSize": 32, "font": "Amatic"
 		          }, 300, 60, DE.LangSystem.get( "replay" ) )
@@ -63,6 +70,53 @@ function( datas, DE, GamePad, Enemy, Player)
 		      {
 		        this.parent.enable = false;
 		        Game.play = true;
+		        Game.gold = 4000;
+		        this.life = 2000;
+  				Game.thisWave = 0;
+		        this.renderers[ 0 ].setFrame( 0 );
+		        _self.trigger( "restart" ); // use trigger method - Game will catch it
+		      }
+		      this.gui.add( loose );
+		      this.gui.add( this.gui.restartBtn );
+		      this.scene.add( this.gui );
+		    }
+		   
+    
+	    this.Win = function(){
+	    	Game.play = false;
+
+		      this.gui = new DE.GameObject( { "x": _screenSizes.w / 2, "y": _screenSizes.h / 2, "zindex": 25 } );
+		      var loose = new DE.GameObject( {
+		        "renderers":[ new DE.SpriteRenderer( { "spriteName": "Screen" } ) , 
+		        			new DE.TextRenderer( {
+		           "fontSize": 64, "font": "Amatic" // not a nice font but just to show you how to :)
+		        }, 700, 100, DE.LangSystem.get( "win" ) )]
+		      } );
+		      this.gui.restartBtn = new DE.GameObject( {
+		        "y": 150
+		        , "renderers": [
+		          new DE.SpriteRenderer( { "spriteName": "btn", "scale": 0.8 } )
+		          , new DE.TextRenderer( {
+		            "fontSize": 32, "font": "Amatic"
+		          }, 300, 60, DE.LangSystem.get( "replay" ) )
+		        ]
+		        , "collider": new DE.FixedBoxCollider( 550, 70 )
+		      } );
+		      this.gui.restartBtn.onMouseEnter = function()
+		      {
+		        this.renderers[ 0 ].setFrame( 1 );
+		      }
+		      this.gui.restartBtn.onMouseLeave = function()
+		      {
+		        this.renderers[ 0 ].setFrame( 0 );
+		      }
+		      this.gui.restartBtn.onMouseUp = function()
+		      {
+		        this.parent.enable = false;
+		        Game.play = true;
+		        Game.gold = 4000;
+		        this.life = 2000;
+  				Game.thisWave = 0;
 		        this.renderers[ 0 ].setFrame( 0 );
 		        _self.trigger( "restart" ); // use trigger method - Game will catch it
 		      }
@@ -73,6 +127,7 @@ function( datas, DE, GamePad, Enemy, Player)
 		   
     
 	    
+    this.addAutomatism( "checkInputs", "Win" );
 
 	}
 	Castle.prototype = new DE.GameObject();

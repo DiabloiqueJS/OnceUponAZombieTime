@@ -9,15 +9,15 @@ function( datas, DE, Bullet, GUI )
   {
     var _myd = datas.enemies[ params.name ];
     DE.GameObject.call( this, {
-      "x": _screenSizes.w/*params.x*/, "y": params.y, "name": params.name, "tag": "enemy"
-      ,"renderer": new DE.SpriteRenderer( { "spriteName": _myd.spriteName
-                                         , "startFrame": _myd.frame, "scale": _myd.scale || 1 } )
+      "x": _screenSizes.w/*params.x*/, "y": params.y,"z": 2, "name": params.name, "tag": "enemy"
+      ,"renderer": new DE.SpriteRenderer( { "spriteName": "enemies"
+                                         , "startFrame": _myd.frame, "scale": 0.12 } )
       ,"collider": new DE.CircleCollider( _myd.radius || 30
                         , { "offsetX": _myd.colOffsetX || 0, "offsetY": _myd.colOffsetY || 0 } )
     } );
     var life;
     this.add( life = new DE.GameObject( {
-      "x": 0, "y": -80, "z": 1, "renderer": new DE.SpriteRenderer( { "spriteName": "life", "scaleY": 0.6, "scaleX": 0.3 } )
+      "x": 0, "y": -40, "z": -2, "renderer": new DE.SpriteRenderer( { "spriteName": "life", "scaleY": 0.3, "scaleX": 0.15 } )
     } ) );
     this.lifeWidth  = life.renderers[0].sizes.width;
     this.lastFire   = Date.now();
@@ -38,9 +38,22 @@ function( datas, DE, Bullet, GUI )
 
       var gos = this.scene.gameObjects;
         for ( var n = 0, t = gos.length, g; n < t; ++n )
-        {
+        { 
+          this.walk = true;
           g = gos[ n ];
           if ( g.tag == "castle" && DE.CollisionSystem.circleCollision( this.collider, g.collider ) )
+          {
+            this.walk = false;
+            
+            if ( !this.enable || !this.fireRate || Date.now() - this.lastFire < this.fireRate )
+              return;
+            this.lastFire = Date.now();
+            g.getDamage(5);
+
+            return;
+          }
+
+          if ( g.tag == "wall" && DE.CollisionSystem.circleCollision( this.collider, g.collider ) )
           {
             this.walk = false;
             

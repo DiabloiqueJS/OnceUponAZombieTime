@@ -41,7 +41,7 @@ function( CONFIG )
         , "isAnimated": true, "isLoop": true } ]
       ,[ "p-fire", "p-fire", "png", { "load": true, "totalFrame": 10, "eachAnim": 40
           , "isAnimated": true, "isLoop": false } ]
-      ,[ "enemies", "enemies", "png", { "load": true, "totalFrame": 4, "isAnimated": false, "isLoop": false } ]
+      ,[ "enemies", "zombie-walk", "png", { "load": true, "totalFrame": 2, "isAnimated": true, "isLoop": true, "eachAnim": 120 } ]
       ,[ "reactor", "reactor", "png", { "load": true, "totalFrame": 4, "eachAnim": 40
           , "isAnimated": true, "isLoop": true } ]
       ,[ "e-fire", "e-fire", "png", { "load": true, "totalFrame": 4, "eachAnim": 80

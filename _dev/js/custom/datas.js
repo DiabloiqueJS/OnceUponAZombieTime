@@ -4,15 +4,15 @@ define( []
   var datas = {
     "enemies": {
       "one": { "spriteName": "enemies", "frame": 0, "bulletOffset": 50, "fireRate": false, "life": 3
-              , "radius": 60, "colOffsetX": 0, "colOffsetY": 0, "offsetFire": 50, "scale": 0.4, "speed": 4 }
+              , "radius": 40, "colOffsetX": 0, "colOffsetY": 0, "offsetFire": 50, "scale": 0.4, "speed": 4 }
       ,"two": { "spriteName": "enemies", "frame": 1, "bulletOffset": 50, "fireRate": 1300, "life": 4
-              , "radius": 70, "colOffsetX": 0, "colOffsetY": 0, "offsetFire": 50, "scale": 0.4, "speed": 6 }
+              , "radius": 40, "colOffsetX": 0, "colOffsetY": 0, "offsetFire": 50, "scale": 0.4, "speed": 6 }
       ,"three": { "spriteName": "enemies", "frame": 2, "bulletOffset": 50, "fireRate": 1000, "life": 10
-              , "radius": 80, "colOffsetX": 0, "colOffsetY": 0, "offsetFire": 50, "scale": 0.4, "speed": 2 }
+              , "radius": 40, "colOffsetX": 0, "colOffsetY": 0, "offsetFire": 50, "scale": 0.4, "speed": 2 }
       ,"four": { "spriteName": "enemies", "frame": 3, "bulletOffset": 50, "fireRate": 600, "life": 4
-              , "radius": 60, "colOffsetX": 0, "colOffsetY": 0, "offsetFire": 50, "scale": 0.4, "speed": 7 }
+              , "radius": 40, "colOffsetX": 0, "colOffsetY": 0, "offsetFire": 50, "scale": 0.4, "speed": 7 }
       ,"bench": { "spriteName": "enemies", "frame": 2, "bulletOffset": 50, "fireRate": 100, "life": 4
-              , "radius": 60, "colOffsetX": 0, "colOffsetY": 0, "offsetFire": 50, "scale": 0.4, "speed": 2 }
+              , "radius": 40, "colOffsetX": 0, "colOffsetY": 0, "offsetFire": 50, "scale": 0.4, "speed": 2 }
     }
     
     , "waves": {

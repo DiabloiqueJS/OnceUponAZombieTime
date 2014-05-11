@@ -23,9 +23,10 @@ function( datas, DE, GamePad, Enemy, Player)
 	    }
 
 	    this.update = function(){
-	    	if(Game.thisWave >= 20){
+	    	if(Game.thisWave >= 18){
 	    		this.Win();
 	    	}
+	    	//22
 	    }
 
 	    this.getDamage = function(dmg)

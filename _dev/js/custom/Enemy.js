@@ -70,6 +70,8 @@ function( datas, DE, Bullet, GUI, Trap )
           {
             this.walk = false;
             this.askToKill();
+
+            Game.thisWave++;
             g.clean();
 
             return;
@@ -82,7 +84,6 @@ function( datas, DE, Bullet, GUI, Trap )
               return;
               this.lastFire = Date.now();
               this.getDamage();
-              console.log(this.walk);
 
             return;
           }
@@ -127,7 +128,9 @@ function( datas, DE, Bullet, GUI, Trap )
       if ( this.life <= 0 ){
         Game.gold += 10;
         Game.gui.update();
-        this.askToKill();}
+        this.askToKill();
+        Game.thisWave++;
+      }
     }
     
     this.addAutomatism( "IA", "gameLogic" );

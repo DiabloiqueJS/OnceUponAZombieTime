@@ -137,8 +137,8 @@ function( DE, Player, Enemy, datas, Trap, Castle, GuiLabel, GuiImage, GUI)
       {
         Game.scene.add( new Enemy( Game.screen, e, Game.player ) );
 
-        Game.thisWave ++;
       }
+        Game.thisWave ++;
     }
   }
   

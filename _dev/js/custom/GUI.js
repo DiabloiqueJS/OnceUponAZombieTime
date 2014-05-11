@@ -66,17 +66,23 @@ function( datas, DE, GamePad, Player, GuiLabel)
 		    Game.scene.add( Game.trap3 );
 
 		    Game.scene.add(gold = new DE.GameObject( {
-        "x": Game.screen.w / 2, "y": Game.screen.h / 2 - 50
-        , "renderers": [ new DE.TextRenderer( {
-            "fontSize": 24, "font": "Arial Black" // not a nice font but just to show you how to :)
-          }, 500, 60, "Gold: "+ Game.gold )
-        ]
-	    }));
+		        "x": Game.screen.w / 3.8, "y": Game.screen.h / 30
+		        , "renderers": [ new DE.TextRenderer( {
+		            "fontSize": 24, "font": "Arial Black" // not a nice font but just to show you how to :)
+		          }, 500, 60, "Gold: "+ Game.gold )
+		        ]
+			    }));
+
+		    this.update();
 		}
 
 	    this.update = function(){
-
+	    	gold.renderers[0] = new DE.TextRenderer( {
+            "fontSize": 24, "font": "Arial Black" // not a nice font but just to show you how to :)
+          }, 500, 60, "Gold: "+ Game.gold );
 	    }
+
+	    this.addAutomatism( "UpdateGUI", "update" );
     }
 
   GUI.prototype = new DE.GameObject();

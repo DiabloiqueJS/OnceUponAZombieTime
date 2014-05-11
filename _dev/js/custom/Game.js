@@ -5,7 +5,7 @@ function( DE, Player, Enemy, datas, Trap, Castle, GuiLabel, GuiImage, GUI)
   var Game = {};
 
   Game.play = false;
-  Game.gold = 100;
+  Game.gold = 4000;
   
   // init
   Game.init = function()
@@ -18,7 +18,7 @@ function( DE, Player, Enemy, datas, Trap, Castle, GuiLabel, GuiImage, GUI)
     
     Game.scene = new DE.Scene( "Test" );
     
-    Game.camera = new DE.Camera( Game.screen.w, Game.screen.h, 0, 0, { 'name': "Test zoom 100%", 'backgroundColor': "rgb(50,50,200)" } );
+    Game.camera = new DE.Camera( Game.screen.w, Game.screen.h, 0, 0, { 'name': "Test zoom 100%", 'backgroundImage': "mainScreen" } );
     
     Game.camera.scene = Game.scene;
     Game.render.add( Game.camera );
@@ -32,11 +32,11 @@ function( DE, Player, Enemy, datas, Trap, Castle, GuiLabel, GuiImage, GUI)
   {
     /** Game Button **/
       var gameBtn = new DE.GameObject( {
-        "x": Game.screen.w / 2, "y": Game.screen.h / 2 - 50
+        "x": Game.screen.w / 2, "y": Game.screen.h / 1.4
         , "renderers": [
           new DE.SpriteRenderer( { "spriteName": "btn" } )
           , new DE.TextRenderer( {
-            "fontSize": 32, "font": "Arial Black" // not a nice font but just to show you how to :)
+            "fontSize": 32, "font": "Amatic" // not a nice font but just to show you how to :)
           }, 500, 60, DE.LangSystem.get( "play" ) )
         ]
         , "collider": new DE.FixedBoxCollider( 550, 70 )
@@ -51,30 +51,8 @@ function( DE, Player, Enemy, datas, Trap, Castle, GuiLabel, GuiImage, GUI)
       Game.gameBtn = gameBtn;
       Game.scene.add( gameBtn );
       /****/
-    /** Bench Button **/
-      var benchBtn = new DE.GameObject( {
-        "x": Game.screen.w / 2, "y": Game.screen.h / 2 + 50
-        , "renderers": [
-          new DE.SpriteRenderer( { "spriteName": "btn" } )
-          , new DE.TextRenderer( {
-            "fontSize": 32, "font": "Arial Black" // not a nice font but just to show you how to :)
-          }, 500, 60, DE.LangSystem.get( "benchmark" ) )
-        ]
-        , "collider": new DE.FixedBoxCollider( 550, 70 )
-      } );
-      benchBtn.onMouseEnter = function(){ this.renderers[ 0 ].setFrame( 1 ); }
-      benchBtn.onMouseLeave = function(){ this.renderers[ 0 ].setFrame( 0 ); }
-      benchBtn.onMouseUp = function()
-      {
-        this.renderers[ 0 ].setFrame( 0 );
-        Game.startGame( true );
-      }
-      Game.benchBtn = benchBtn;
-      Game.scene.add( benchBtn );
-     /****/
-    
-   
-    //DE.AudioManager.fx.setVolume( 10 );
+
+    DE.AudioManager.fx.setVolume( 10 );
     setTimeout( function(){ DE.States.down( "isLoading" ); }, 200 );
   };
   
@@ -119,7 +97,7 @@ function( DE, Player, Enemy, datas, Trap, Castle, GuiLabel, GuiImage, GUI)
       datas.benchwaves[ i ].readed = false;
     _firstCheck = false;
     //start the music oh yeah
-    //DE.AudioManager.music.stopAllAndPlay( "music" );
+    DE.AudioManager.music.stopAllAndPlay( "music" );
   }
   
   // simple waves spawner

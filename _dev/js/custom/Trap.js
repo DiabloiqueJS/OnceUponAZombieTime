@@ -35,7 +35,7 @@ function(DE, GUI)
 			      "renderer": new DE.SpriteRenderer( { "spriteName": "hole", "scale": 1 * 0.6666666666666666666 } ),
 			      "collider": new DE.CircleCollider( this.width/8 )
 			    });
-
+	    		Game.gold -= 250;
 	    	}
 	     	
 	    	if(Game.gui.select == "stab" ){
@@ -48,6 +48,7 @@ function(DE, GUI)
 			      "renderer": new DE.SpriteRenderer( { "spriteName": "stab", "scale": 1 * 0.6666666666666666666 } ),
 			      "collider": new DE.CircleCollider( this.width/2 )
 			    });
+	    		Game.gold -= 100;
 
 	    	}
 	     	
@@ -61,8 +62,11 @@ function(DE, GUI)
 			      "renderer": new DE.SpriteRenderer( { "spriteName": "wall", "scale": 1 * 0.6666666666666666666 } ),
 			      "collider": new DE.CircleCollider( this.width/2 )
 			    });
+	    		Game.gold -= 50;
 
 	    	}
+
+	    	Game.gui.update();
 	    	Game.gui.select = "null";
 	    	Game.trap1.renderers[ 0 ].setFrame( 0 );
 	    	Game.trap2.renderers[ 0 ].setFrame( 0 );

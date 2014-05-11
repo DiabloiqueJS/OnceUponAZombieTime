@@ -46,7 +46,7 @@ function( datas, DE, GamePad, Enemy, Player)
 		        , "renderers": [
 		          new DE.SpriteRenderer( { "spriteName": "btn" } )
 		          , new DE.TextRenderer( {
-		            "fontSize": 32, "font": "Arial Black"
+		            "fontSize": 32, "font": "Amatic"
 		          }, 300, 60, DE.LangSystem.get( "replay" ) )
 		        ]
 		        , "collider": new DE.FixedBoxCollider( 550, 70 )

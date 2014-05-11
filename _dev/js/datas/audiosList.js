@@ -15,7 +15,8 @@ function( CONFIG )
 {
   var audioList = [
     // MUSICS
-   // [ "music", "audio/awake10_megaWall", [ 'ogg', 'mp3' ], { "preload": true, "loop": true, "isMusic": true } ]
+    [ "music", "audio/Ambiance", [ 'ogg', 'mp3' ], { "preload": true, "loop": true, "isMusic": true } ]
+    ,[ "music", "audio/Ambiance", [ 'ogg', 'mp3' ], { "preload": true, "loop": true, "isMusic": true } ]
     
     // FX
     //,[ "piew", "audio/piew", [ 'ogg', 'mp3' ], { "preload": true, "loop": false, "isMusic": false } ]

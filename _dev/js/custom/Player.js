@@ -6,7 +6,7 @@ function( datas, DE, GamePad, Bullet )
   {
     DE.GameObject.call( this, {
       "x": _screenSizes.w / 2, "y": _screenSizes.h - 280, "zindex": 1, "tag": "player"
-      ,"renderer": new DE.SpriteRenderer( { "spriteName": "shipatk", "scale": 0.1 } )
+      ,"renderer": new DE.SpriteRenderer( { "spriteName": "ship", "scale": 0.1 } )
     } );
     
     var _self = this;
@@ -96,7 +96,7 @@ function( datas, DE, GamePad, Bullet )
       this.gui = new DE.GameObject( { "x": _screenSizes.w / 2, "y": _screenSizes.h / 2, "zindex": 25 } );
       var loose = new DE.GameObject( {
         "renderer": new DE.TextRenderer( {
-           "fontSize": 64, "font": "Arial Black" // not a nice font but just to show you how to :)
+           "fontSize": 64, "font": "Amatic" // not a nice font but just to show you how to :)
         }, 700, 100, DE.LangSystem.get( "loose" ) )
       } );
       this.gui.restartBtn = new DE.GameObject( {
@@ -104,7 +104,7 @@ function( datas, DE, GamePad, Bullet )
         , "renderers": [
           new DE.SpriteRenderer( { "spriteName": "btn" } )
           , new DE.TextRenderer( {
-            "fontSize": 32, "font": "Arial Black"
+            "fontSize": 32, "font": "Amatic"
           }, 300, 60, DE.LangSystem.get( "replay" ) )
         ]
         , "collider": new DE.FixedBoxCollider( 550, 70 )

@@ -30,7 +30,9 @@ function( datas, DE, Bullet )
 
     this.gameLogic = function()
     {
-      
+      if(!Game.run)
+        return;
+
       var gos = this.scene.gameObjects;
         for ( var n = 0, t = gos.length, g; n < t; ++n )
         {

@@ -14,7 +14,7 @@ function( datas, DE, GamePad, Enemy, Player)
 	       "renderer": new DE.SpriteRenderer( { "spriteName": "life", "scaleY": 1, "scaleX": 0.5 })
 	    } ) );
 	    this.lifeWidth  = life.renderers[0].sizes.width;
-		this.life       =  2000;
+		this.life       =  100;
 	    this.maxlife    =  2000;
 
 
@@ -34,6 +34,7 @@ function( datas, DE, GamePad, Enemy, Player)
 	    }
 
 	    this.gameover = function(){
+	    	Game.play = false;
 
 		      this.gui = new DE.GameObject( { "x": _screenSizes.w / 2, "y": _screenSizes.h / 2, "zindex": 25 } );
 		      var loose = new DE.GameObject( {
@@ -62,6 +63,7 @@ function( datas, DE, GamePad, Enemy, Player)
 		      this.gui.restartBtn.onMouseUp = function()
 		      {
 		        this.parent.enable = false;
+		        Game.play = true;
 		        this.renderers[ 0 ].setFrame( 0 );
 		        _self.trigger( "restart" ); // use trigger method - Game will catch it
 		      }

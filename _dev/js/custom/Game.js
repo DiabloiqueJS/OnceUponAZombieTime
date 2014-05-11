@@ -1,20 +1,10 @@
-﻿/**
-* Author
- @Inateno / http://inateno.com / http://dreamirl.com
 
-* ContributorsList
- @Inateno
-
-***
- sample Game - kill the bubble
- there is no "end" and no menus, it's a very lite "how to" for basics
- and you can create complete game with this :)
-**/
 define( [ 'DREAM_ENGINE', 'Player', 'Enemy', 'datas', 'Trap', 'Castle','DE.GuiLabel' , 'DE.GuiImage', 'GUI'],
 function( DE, Player, Enemy, datas, Trap, Castle, GuiLabel, GuiImage, GUI)
 {
   var Game = {};
 
+  Game.play = false;
   Game.gold = 100;
   
   // init
@@ -96,6 +86,7 @@ function( DE, Player, Enemy, datas, Trap, Castle, GuiLabel, GuiImage, GUI)
   
   Game.startGame = function( bench )
   {
+    Game.play = true;
     Game.gui = new GUI();
     Game.gui.init();
 
@@ -143,6 +134,9 @@ function( DE, Player, Enemy, datas, Trap, Castle, GuiLabel, GuiImage, GUI)
   {
     if ( !Game.run )
       return;
+    if(!Game.play)
+      return;
+
     if ( !_firstCheck )
       _firstCheck = time;
     _lastCheck = time;

@@ -4,6 +4,9 @@ function( datas, DE, GamePad, Player, GuiLabel)
 	function GUI()
     {
     	var gold;
+
+    	this.select = null;
+
 	    this.init = function(){
 	    	Game.menuBtn = new DE.GameObject( {
 		        "x": Game.screen.w / 1.03, "y": Game.screen.h / 20
@@ -27,11 +30,12 @@ function( datas, DE, GamePad, Player, GuiLabel)
 		        ]
 		        , "collider": new DE.FixedBoxCollider( 120 * 0.67, 120 * 0.67 )
 		    } );
-		    Game.trap1.onMouseEnter = function(){ this.renderers[ 0 ].setFrame( 1 ); }
-		    Game.trap1.onMouseLeave = function(){ this.renderers[ 0 ].setFrame( 0 ); }
+		    Game.trap1.onMouseEnter = function(){ /*this.renderers[ 0 ].setFrame( 1 );*/ }
+		    Game.trap1.onMouseLeave = function(){ /*this.renderers[ 0 ].setFrame( 0 );*/ }
 		    Game.trap1.onMouseUp = function()
 		    {
-		      console.log("bouton trap1");
+		      GUI.select = "hole";
+		      Game.gui.update();
 		    }
 		    Game.scene.add( Game.trap1 );
 
@@ -42,11 +46,12 @@ function( datas, DE, GamePad, Player, GuiLabel)
 		        ]
 		        , "collider": new DE.FixedBoxCollider( 120 * 0.67, 120 * 0.67 )
 		    } );
-		    Game.trap2.onMouseEnter = function(){ this.renderers[ 0 ].setFrame( 1 ); }
-		    Game.trap2.onMouseLeave = function(){ this.renderers[ 0 ].setFrame( 0 ); }
+		    Game.trap2.onMouseEnter = function(){ /*this.renderers[ 0 ].setFrame( 1 );*/ }
+		    Game.trap2.onMouseLeave = function(){ /*this.renderers[ 0 ].setFrame( 0 );*/ }
 		    Game.trap2.onMouseUp = function()
 		    {
-		      console.log("bouton trap2");
+		      GUI.select = "stab";
+		      Game.gui.update();
 		    }
 		    Game.scene.add( Game.trap2 );
 
@@ -57,32 +62,50 @@ function( datas, DE, GamePad, Player, GuiLabel)
 		        ]
 		        , "collider": new DE.FixedBoxCollider( 120 * 0.67, 120 * 0.67 )
 		    });
-		    Game.trap3.onMouseEnter = function(){ this.renderers[ 0 ].setFrame( 1 );}
-		    Game.trap3.onMouseLeave = function(){ this.renderers[ 0 ].setFrame( 0 );}
+		    Game.trap3.onMouseEnter = function(){ /*this.renderers[ 0 ].setFrame( 1 );*/}
+		    Game.trap3.onMouseLeave = function(){ /*this.renderers[ 0 ].setFrame( 0 );*/}
 		    Game.trap3.onMouseUp = function()
 		    {
-		      console.log("bouton trap3");
+		      GUI.select = "wall";
+		      Game.gui.update();
 		    }
 		    Game.scene.add( Game.trap3 );
 
 		    Game.scene.add(gold = new DE.GameObject( {
 		        "x": Game.screen.w / 3.8, "y": Game.screen.h / 30
 		        , "renderers": [ new DE.TextRenderer( {
-		            "fontSize": 24, "font": "Arial Black" // not a nice font but just to show you how to :)
+		            "fontSize": 24, "font": "Arial Black" 
 		          }, 500, 60, "Gold: "+ Game.gold )
-		        ]
-			    }));
+	        ]
+		    }));
 
-		    this.update();
+		    
 		}
 
 	    this.update = function(){
 	    	gold.renderers[0] = new DE.TextRenderer( {
-            "fontSize": 24, "font": "Arial Black" // not a nice font but just to show you how to :)
-          }, 500, 60, "Gold: "+ Game.gold );
+	            "fontSize": 24, "font": "Arial Black" 
+	        }, 500, 60, "Gold: "+ Game.gold );
+
+	    	if(GUI.select == "wall")
+	    		Game.trap3.renderers[ 0 ].setFrame( 1 );
+	    	else
+	    		Game.trap3.renderers[ 0 ].setFrame( 0 );
+
+	    	if(GUI.select == "stab")
+	    		Game.trap2.renderers[ 0 ].setFrame( 1 );
+	    	else
+	    		Game.trap2.renderers[ 0 ].setFrame( 0 );
+
+	    	if(GUI.select == "hole")
+	    		Game.trap1.renderers[ 0 ].setFrame( 1 );
+	    	else
+	    		Game.trap1.renderers[ 0 ].setFrame( 0 );
+
+	    	console.log(GUI.select);
+
 	    }
 
-	    this.addAutomatism( "UpdateGUI", "update" );
     }
 
   GUI.prototype = new DE.GameObject();

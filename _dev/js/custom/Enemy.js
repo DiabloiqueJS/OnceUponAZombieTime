@@ -1,5 +1,5 @@
-define( [ 'datas', 'DREAM_ENGINE', 'Bullet' ],
-function( datas, DE, Bullet )
+define( [ 'datas', 'DREAM_ENGINE', 'Bullet', 'GUI' ],
+function( datas, DE, Bullet, GUI )
 {
   // args are written with a _ because they become private (we use args later in methods)
   // optimising performances here by passing the player to check collisions only with this objects
@@ -31,6 +31,9 @@ function( datas, DE, Bullet )
     this.gameLogic = function()
     {
       if(!Game.run)
+        return;
+
+      if(!Game.play)
         return;
 
       var gos = this.scene.gameObjects;
@@ -87,6 +90,7 @@ function( datas, DE, Bullet )
       
       if ( this.life <= 0 ){
         Game.gold += 10;
+        Game.gui.update();
         this.askToKill();}
     }
     

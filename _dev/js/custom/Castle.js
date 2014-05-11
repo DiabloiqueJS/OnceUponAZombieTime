@@ -27,9 +27,8 @@ function( datas, DE, GamePad, Enemy, Player)
 	      this.life -= dmg;
 	      life.renderers[0].sizes.width = (this.life / this.maxlife)* this.lifeWidth;
 	      if( this.life <= 0 ){
-  	        console.log("Game over");
-  	    	this.gameover();
-  	    	this.life = 0;
+	  	    	this.gameover();
+	  	    	this.life = 0;
   	    	}
 	    }
 

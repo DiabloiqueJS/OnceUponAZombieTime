@@ -1,4 +1,5 @@
-define( ['DREAM_ENGINE'], function(DE)
+define( ['DREAM_ENGINE', 'GUI'],
+function(DE, GUI)
 {
 	function Trap(comportement, idCase)
 	{
@@ -16,6 +17,29 @@ define( ['DREAM_ENGINE'], function(DE)
 	      "renderer": new DE.SpriteRenderer( { "spriteName": "rien", "scale": 1 * 0.6666666666666666666 } ),
 	      "collider": new DE.CircleCollider( this.width/2 )
 	    });
+
+		this.update = function(){
+
+		}
+
+		this.onMouseUp = function()
+	    {
+	    	if(Game.gui.select == "hole" ){
+	    		console.log(this);
+	    	}
+	     	
+	    	if(Game.gui.select == "stab" ){
+	    		
+	    	}
+	     	
+	    	if(Game.gui.select == "stab" ){
+	    		
+	    	}
+	     	
+	    }
+
+
+    	this.addAutomatism( "logic", "update" );
 	}
 
 	Trap.prototype = new DE.GameObject();

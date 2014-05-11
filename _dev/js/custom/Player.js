@@ -6,8 +6,7 @@ function( datas, DE, GamePad, Bullet )
   {
     DE.GameObject.call( this, {
       "x": _screenSizes.w / 2, "y": _screenSizes.h - 280, "zindex": 1, "tag": "player"
-      ,"renderer": new DE.SpriteRenderer( { "spriteName": "ship", "scale": 0.3 } )
-      ,"collider": new DE.CircleCollider( 20 )
+      ,"renderer": new DE.SpriteRenderer( { "spriteName": "ship", "scale": 0.1 } )
     } );
     
     var _self = this;

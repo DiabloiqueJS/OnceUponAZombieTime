@@ -35,8 +35,10 @@ function( CONFIG )
     
     // usage name, real name (can contain subpath), extension, parameters
     , imagesList: [
-      [ "ship", "ship", "png", { "load": true, "totalFrame": 10, "eachAnim": 40
-        , "isAnimated": false, "isLoop": false } ]
+      [ "ship", "knight-idle", "png", { "load": true, "totalFrame": 5, "eachAnim": 80
+        , "isAnimated": true, "isLoop": false } ]
+      ,[ "shipatk", "knight-atk", "png", { "load": true, "totalFrame": 5, "eachAnim": 80
+        , "isAnimated": true, "isLoop": true } ]
       ,[ "p-fire", "p-fire", "png", { "load": true, "totalFrame": 10, "eachAnim": 40
           , "isAnimated": true, "isLoop": false } ]
       ,[ "enemies", "enemies", "png", { "load": true, "totalFrame": 4, "isAnimated": false, "isLoop": false } ]

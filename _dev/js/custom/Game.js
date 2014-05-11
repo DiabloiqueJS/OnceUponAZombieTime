@@ -11,7 +11,7 @@ function( DE, Player, Enemy, datas, Trap, Castle, GuiLabel, GuiImage, GUI)
   Game.init = function()
   {
     console.log( "Engine init" );
-    DE.CONFIG.DEBUG_LEVEL = 5; // 5 for all debug
+    DE.CONFIG.DEBUG_LEVEL = 0; // 5 for all debug
     
     Game.render = new DE.Render( "render", { fullScreen: "ratioStretch" } );
     Game.render.init();
